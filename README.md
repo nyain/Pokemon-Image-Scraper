@@ -33,5 +33,3 @@ This repository contains a Python script that scrapes Pokémon images from [Bulb
 This project is based on a modified version of the [Pokémon repository](https://github.com/HybridShivam/Pokemon/tree/master) by HybridShivam. I adapted the original script to fit specific scraping needs for Bulbapedia. Special thanks to the original author for their work!
 
 --- 
-
-This will give proper credit while highlighting your modifications.
