@@ -1,11 +1,12 @@
 # Pokémon Image Scraper
 
-A Python-based scraper for collecting Pokémon images from **Bulbapedia** and **Bing Image Search**.
+A Python-based scraper that collects Pokémon images from **Bulbapedia** and **Bing Image Search** using **PokeAPI** to fetch all available Pokémon names.
 
 ## Features
 - Scrapes high-quality Pokémon images from Bulbapedia.
-- Automatically fills missing images using Bing Image Search.
-- Customizable Pokémon exclusions via a text file.
+- Fills missing images using Bing Image Search.
+- Fetches all Pokémon names from **PokeAPI**.
+- Supports customizable Pokémon exclusions via a text file.
 
 ## Installation
 1. Clone the repository:
@@ -18,14 +19,15 @@ A Python-based scraper for collecting Pokémon images from **Bulbapedia** and **
     ```
 
 ## Usage
-1. **Exclusion List**: Add any Pokémon names to `filtered_pokemon_names.txt` to exclude them from scraping.
+1. **Exclusion List**: Add Pokémon names (in lowercase) to `filtered_pokemon_names.txt` to exclude them from being scraped.
 2. **Run the Scraper**:
     ```bash
-    python ImageScrapper.py
+    py ImageScrapper.py
     ```
-   - Images will be saved in the `Training` folder, organized by Pokémon name.
+   - Pokémon names are fetched from **PokeAPI**.
+   - Images are saved in the `Training` folder, organized by Pokémon name.
    
 ## Notes
-- **Dependencies**: Make sure to have `aiohttp`, `beautifulsoup4`, and `bing_image_downloader` installed.
-- The scraper first tries Bulbapedia for images, then uses Bing if needed.
-- For Windows, the event loop policy is set to avoid concurrency issues.
+- **Dependencies**: Ensure `aiohttp`, `beautifulsoup4`, `bing_image_downloader`, and other libraries in `requirements.txt` are installed.
+- **Flow**: The scraper first attempts to download images from Bulbapedia. If fewer than 20 images are found, it uses Bing to fill in the rest.
+- On **Windows**, the event loop policy is adjusted to avoid concurrency issues.
