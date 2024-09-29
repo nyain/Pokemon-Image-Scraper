@@ -1,33 +1,31 @@
 # Pokémon Image Scraper
 
-This repository contains a Python script that scrapes Pokémon images from [Bulbapedia](https://bulbapedia.bulbagarden.net) using asynchronous requests and BeautifulSoup. The script downloads images for all Pokémon listed in the [PokéAPI](https://pokeapi.co), organizing them into folders based on their names.
+A Python-based scraper for collecting Pokémon images from **Bulbapedia** and **Bing Image Search**.
 
-### Features:
-- **Asynchronous scraping**: Utilizes `aiohttp` and `asyncio` to scrape and download images efficiently.
-- **BeautifulSoup for parsing**: Extracts image URLs from Bulbapedia pages.
-- **Folder management**: Creates separate folders for each Pokémon, storing up to 25 images per folder.
-- **Concurrency control**: Limits the number of simultaneous requests to avoid overloading the server.
+## Features
+- Scrapes high-quality Pokémon images from Bulbapedia.
+- Automatically fills missing images using Bing Image Search.
+- Customizable Pokémon exclusions via a text file.
 
-### How It Works:
-1. Fetches a list of all Pokémon names from PokéAPI.
-2. Scrapes image URLs from each Pokémon's Bulbapedia archive page.
-3. Downloads and saves the images to corresponding folders.
-
-### Requirements:
-- `aiohttp`
-- `requests`
-- `beautifulsoup4`
-
-### Usage:
-1. Clone the repository.
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/nyain/Pokemon-Image-Scraper.git
+    ```
 2. Install the dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the script:
-   ```
-   python ImageScrapper.py
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### Credits:
-This project is based on a modified version of the [Pokémon repository](https://github.com/HybridShivam/Pokemon/tree/master) by HybridShivam. I adapted the original script to fit specific scraping needs for Bulbapedia. Special thanks to the original author for their work!
+## Usage
+1. **Exclusion List**: Add any Pokémon names to `filtered_pokemon_names.txt` to exclude them from scraping.
+2. **Run the Scraper**:
+    ```bash
+    python ImageScrapper.py
+    ```
+   - Images will be saved in the `Training` folder, organized by Pokémon name.
+   
+## Notes
+- **Dependencies**: Make sure to have `aiohttp`, `beautifulsoup4`, and `bing_image_downloader` installed.
+- The scraper first tries Bulbapedia for images, then uses Bing if needed.
+- For Windows, the event loop policy is set to avoid concurrency issues.
